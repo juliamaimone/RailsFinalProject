@@ -1,4 +1,13 @@
 <h3>Rate music now!</h3>
 
+<%= form_tag ratings_path do %>
+  <%= label_tag(:song, "Song Name") %>
+  <%= text_field_tag(:song, nil) %>
 
-<%= button_to "Rate Song", :class => "button medium", :method => :patch %>
+  <%= label_tag(:stars, "Stars") %>
+  <%= text_field_tag(:stars, nil) %>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <%= submit_tag("Create rating") %>
+<% end %>
